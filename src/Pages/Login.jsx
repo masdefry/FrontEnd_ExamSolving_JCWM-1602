@@ -47,7 +47,9 @@ export default class Login extends React.Component{
                     // Kalo Datanya Belum Ada -> Post
                     axios.post(`http://localhost:2000/users`, {email: this.state.email, password: this.state.password, role: 'user'})
                     .then((res) => {
+                        localStorage.setItem('id', res.data.id)
                         alert('Register Success')
+                        window.location = '/'
                     })
                     .catch((err) => {
                         console.log(err)
@@ -55,7 +57,9 @@ export default class Login extends React.Component{
                 }else{
                     // Kalo Datanya Udah Ada -> Cek Email & Password Apakah Udah Sesuai
                     if(res.data[0].email === this.state.email && res.data[0].password === this.state.password){
+                        localStorage.setItem('id', res.data[0].id)
                         alert('Login Success')
+                        window.location = '/'
                     }else{
                         alert('Login Failed')
                     }
