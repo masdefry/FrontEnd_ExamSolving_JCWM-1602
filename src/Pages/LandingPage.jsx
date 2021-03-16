@@ -54,7 +54,7 @@ export default class LandingPage extends React.Component{
                     let updateQuantity = Number(quantityUser) + Number(quantityCart)
 
                     if(updateQuantity > currentStock){
-                        alert('Quantity Terbaru Melebihi Stock')
+                        alert('Quantity Terbaru Melebihi Stock. Product Udah Ada Didalam Cart!')
                     }else{
                         Axios.patch(`http://localhost:2000/carts/${idCart}`, {quantity: updateQuantity})
                         .then((res) => {
@@ -101,11 +101,7 @@ export default class LandingPage extends React.Component{
     render () {
         if (this.state.dataProduct === null) {
             return (
-                <div className="container">
-                    <div className="row">
-                        Now Loading
-                    </div>
-                </div>
+                null
             )
         }
 

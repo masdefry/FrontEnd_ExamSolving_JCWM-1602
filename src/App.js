@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar'
 import LandingPage from './Pages/LandingPage';
 import Login from './Pages/Login'
+import TransactionHistory from './Pages/TransactionHistory';
 
 class App extends React.Component {
   render(){
@@ -15,6 +16,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route path='/login' component={Login} />
+          <Route path='/history' component={TransactionHistory} />
         </Switch>
       </BrowserRouter>
     );
